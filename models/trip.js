@@ -1,7 +1,15 @@
 import query from "../database/index.js"
 
 
+export async function getTrips(){
+    const allTrips = await query ("SELECT * FROM trip")
+    return allTrips.rows;
+}
+
+
+
+
 export async function createTrip(trip){
     const newTrip = await query ("INSERT INTO trip (trip_name, admin_id) VALUES ($1, $2) RETURNING *", [trip.trip_name, trip.admin_id])
-    return newTrip.rows
+    return newTrip.rows;
 }
