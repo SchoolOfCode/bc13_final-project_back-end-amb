@@ -1,6 +1,11 @@
 import express from "express";
 import morgan from "morgan";
 import cors from "cors";
+import createRouter from "./routes/createRouter"
+import viewRouter from "./routes/viewRouter"
+import joinRouter from "./routes/joinRouter"
+
+
 
 const app = express();
 const PORT = 3001;
