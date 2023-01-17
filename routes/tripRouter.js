@@ -5,7 +5,7 @@ import { createTrip, getTrips } from "../models/trip.js";
 
 tripRouter.get("/:id", async function (req, res) {
   try {
-    const result = await getTrips();
+    const result = await getTrips(user_id);
     res.status(200).json({ success: true, payload: result });
   } catch (err) {
     console.log("err");
