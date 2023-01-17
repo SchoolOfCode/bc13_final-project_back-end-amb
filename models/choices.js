@@ -2,8 +2,8 @@ import query from "../database/index.js";
 
 export async function createChoices(choices) {
   const newTrip = await query(
-    "INSERT INTO choices (category, choice_name, poll_id ) VALUES ($1, $2, $3) RETURNING *",
-    [choices.category, choices.choice_name, choices.poll_id]
+    "INSERT INTO choices (category, choice_name, poll_id, vote_count ) VALUES ($1, $2, $3, $4) RETURNING *",
+    [choices.category, choices.choice_name, choices.poll_id, choices.vote_count]
   );
   return newTrip.rows;
 }

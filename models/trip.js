@@ -1,7 +1,9 @@
 import query from "../database/index.js";
 
 export async function getTrips(user_id) {
-  const allTrips = await query("SELECT * FROM trip");
+  const allTrips = await query(
+    `SELECT trip.trip_name, trip.trip_id FROM members INNER JOIN trip ON trip.trip_id = members.trip_id WHERE members.user_id = ${user_id} RETURNING *`
+  );
   return allTrips.rows;
 }
 
