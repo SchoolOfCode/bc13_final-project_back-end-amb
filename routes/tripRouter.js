@@ -4,6 +4,7 @@ const tripRouter = express.Router();
 import { createTrip, getTrips } from "../models/trip.js";
 
 tripRouter.get("/:id", async function (req, res) {
+    console.log(req.params.id)
   try {
     const result = await getTrips(req.params.id);
     res.status(200).json({ success: true, payload: result });
