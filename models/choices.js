@@ -7,9 +7,9 @@ export async function createChoices(choices) {
   );
   return newTrip.rows;
 }
-export async function getChoices(category, trip_id) {
+export async function getChoices(trip_id) {
   const getChoices = await query(
-    `SELECT trip.trip_id, trip.trip_name, choices.category, choices.choice_name FROM trip INNER JOIN poll ON trip.trip_id = poll.trip_id INNER JOIN choices ON choices.poll_id = poll.poll_id AND choices.category = ${category} WHERE trip.trip_id = ${trip_id}`
+    `SELECT trip.trip_id, trip.trip_name, choices.choice_id, choices.category, choices.choice_name FROM trip INNER JOIN poll ON trip.trip_id = poll.trip_id INNER JOIN choices ON choices.poll_id = poll.poll_id WHERE trip.trip_id = ${trip_id}`
   );
   return getChoices.rows;
 }

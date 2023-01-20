@@ -10,9 +10,9 @@ choicesRouter.post("/", async function (req, res) {
   res.json({ success: true, payload: result });
 });
 
-choicesRouter.get("/", async function (req, res) {
+choicesRouter.get("/:id", async function (req, res) {
   try {
-    const result = await getChoices(req.body.category, req.body.trip_id);
+    const result = await getChoices(req.params.id);
     res.status(200).json({ success: true, payload: result });
   } catch (err) {
     console.log("err");
