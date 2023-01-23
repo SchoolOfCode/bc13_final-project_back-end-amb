@@ -76,6 +76,6 @@ yarn add --dev @testing-library/react
 
 | Method | Path             | Additional Info | Result                                    | Response                                    |
 | ------ | ---------------- | --------------- | ----------------------------------------- | ------------------------------------------- |
-| GET    | /api/Trip     |                 | all Trips                               | { success: Boolean, payload: recipe array } |
-| GET    | /api/Trip/:id |                 | Trip with a particular id if it exists | { success: Boolean, payload: recipe }       |
-| POST   | /api/Trip     | { body }        | create a new Trip                       | { success: Boolean, payload: recipe }       |
+| GET    | /api/Trip     |                 | all Trips                               | { success: Boolean, payload: Trip array } |
+| GET    | /api/Trip/:id |                 | Trip with a particular id if it exists | { success: Boolean, payload: Trip  }       |
+| POST   | /api/Trip     | { body }        | create a new Trip                       | { success: Boolean, payload: Trip }       |
