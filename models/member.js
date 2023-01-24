@@ -7,7 +7,6 @@ export async function createMember(members) {
     "INSERT INTO members (trip_id, user_id) VALUES ($1, $2) RETURNING *",
     [members.trip_id, members.user_id]
   );
-  //console.log(newTrip);
 
   return { newTrip: newTrip.rows };
 }
