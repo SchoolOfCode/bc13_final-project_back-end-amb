@@ -13,13 +13,14 @@ export async function createMember(members) {
 }
 
 export async function emailMember(data) {
-  console.log(data);
-  const memberEmail = await query(
-    "INSERT INTO members_emails (trip_id, user_name, user_email) VALUES ($1, $2, $3) RETURNING *",
-    [data.trip_id, data.user_name, data.user_email]
-  );
+  console.log(data.userName[0]);
+  // const memberEmail = await query(
+  //   "INSERT INTO members_emails (trip_id, user_name, user_email) VALUES ($1, $2, $3) RETURNING *",
+  //   [data.trip_id, data.userName, data.userEmail]
+  // );
 
-  for (let i = 0; i < trip.member.length; i++) {
+  for (let i = 0; i < data.userName.length; i++) {
+    console.log(data.userName);
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
@@ -29,7 +30,7 @@ export async function emailMember(data) {
     });
     const mailOptions = {
       from: "travelherd2023@gmail.com",
-      to: `${data.user_email}`,
+      to: `${data.userName[i].user_email}`,
       subject: "You've been invited to a new trip",
       text: `A friend has invited you to join a group trip on travel herd! to join, navigate to travelherd.com, log in and go to join trip. 
         then enter '${data.trip_id}'`,
@@ -44,5 +45,6 @@ export async function emailMember(data) {
     //, memberEmail: memberEmail.rows
     //password: wmygxapigknbfktk
   }
+
   return {};
 }
