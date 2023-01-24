@@ -6,8 +6,13 @@ import { getTrips } from "../models/trip.js";
 import tripRouter from "./tripRouter.js";
 
 choicesRouter.post("/", async function (req, res) {
-  const result = await createChoices(req.body);
+  try{
+    const result = await createChoices(req.body);
   res.json({ success: true, payload: result });
+  }catch(err){
+    console.log(err)
+  }
+  
 });
 
 choicesRouter.get("/:id", async function (req, res) {
@@ -15,7 +20,7 @@ choicesRouter.get("/:id", async function (req, res) {
     const result = await getChoices(req.params.id);
     res.status(200).json({ success: true, payload: result });
   } catch (err) {
-    console.log("err");
+    console.log(err);
   }
 });
 

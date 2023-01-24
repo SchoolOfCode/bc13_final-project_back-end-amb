@@ -23,15 +23,22 @@ try {
   const result = await getAllTrips();
   res.status(200).json({ success: true, payload: result });
 } catch (err) {
-  console.log("err");
+  console.log(err);
 }
 
 
 });
 
 tripRouter.post("/", async function (req, res) {
-  const result = await createTrip(req.body);
+
+  try {
+const result = await createTrip(req.body);
   res.json({ success: true, payload: result });
+  } catch(err){
+    console.log(err)
+  }
+  
 });
+
 
 export default tripRouter;

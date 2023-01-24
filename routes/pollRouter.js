@@ -5,8 +5,13 @@ const pollRouter = express.Router();
 import { createPoll } from "../models/poll.js";
 
 pollRouter.post("/", async function (req, res) {
-  const result = await createPoll(req.body);
+  try{
+    const result = await createPoll(req.body);
   res.json({ success: true, payload: result });
+  } catch (err){
+    console.log(err)
+  }
+  
 });
 
 export default pollRouter;
