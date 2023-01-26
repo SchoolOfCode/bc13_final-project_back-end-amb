@@ -10,7 +10,10 @@
 ## 📌 The Creators
 
 - [@ksmaldon](https://github.com/ksmaldon)
+
 - [@L-E-W-1-5](https://github.com/L-E-W-1-5)
+
+
 - [@DionneSD](https://github.com/DionneSD)
 - [@celiabocking](https://github.com/celiabocking)
 - [@natashachinea](https://github.com/natashachinea)
@@ -79,3 +82,4 @@ yarn add --dev @testing-library/react
 | GET    | /api/Trip     |                 | all Trips                               | { success: Boolean, payload: Trip array } |
 | GET    | /api/Trip/:id |                 | Trip with a particular id if it exists | { success: Boolean, payload: Trip  }       |
 | POST   | /api/Trip     | { body }        | create a new Trip                       | { success: Boolean, payload: Trip }       |
+
